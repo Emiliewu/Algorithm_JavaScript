@@ -1,0 +1,6 @@
+When to use linked list
+
+Array VS Linked list
+1. Array: add or remove non-edge elements
+2. Linked List: add or remove first or last element, just change the pointer
+

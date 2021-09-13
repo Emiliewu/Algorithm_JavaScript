@@ -1,0 +1,13 @@
+When to use queue?
+
+First in first out
+JavaScript use array to realize
+push, shift, queue[0]
+
+1. JS Async callback queue in Event Loop
+2. Number of Recent Calls problem
+  inputs = [[], [1], [100], [3001], [3002]]
+  output: [null,1,2,3,3]
+3. queue in banking 
+4. Tree and Graph, BFS(Breadth First Search)
+

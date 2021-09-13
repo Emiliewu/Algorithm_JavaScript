@@ -1,0 +1,9 @@
+When shall we use stack?
+
+Last in first out
+JavaScript does not have stack as data structure, we use array to realize
+push, pop, stack[stack.length-1]
+
+1. Decimal to Binary
+2. Parentheses validation check
+3. call stack(函数调用堆栈)
