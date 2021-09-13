@@ -1,3 +1,7 @@
 无序且唯一
 
 去重， 判断某元素是否在集合中， 求交集
+
+new, add, delete, has, size
+
+iterate Set, Array <-> Set
