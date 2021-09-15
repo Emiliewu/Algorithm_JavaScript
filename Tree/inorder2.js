@@ -15,4 +15,6 @@ const inorder = (root) => {
     console.log(n.val);
     p = n.right;
   }
-}
+};
+
+inorder(bt);
