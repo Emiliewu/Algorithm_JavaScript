@@ -181,6 +181,43 @@ class DLList {
     this.length--; // decrement
     return temp;
   }
+
+  isPalindrome() {
+    // do we really need 2 runners?
+    var runner = this.head;
+    var forward = "";
+    var backward = "";
+
+    // though we still walk through every character, it is still 0(n) if we walk through n/2
+    while (runner) {
+        forward += runner.data;
+        backward = runner.data + backward;
+        runner = runner.next;
+    }
+    return forward === backward;
+}
+
+// reverse a doubly linked list in place
+reverse() {
+    var runner = this.head;
+    if (runner === null) return;
+    if (runner === this.tail) return;
+
+    while (runner) {
+        var temp = runner.next;
+        runner.next = runner.prev;
+        runner.prev = temp;
+        runner = temp;
+
+        // [runner.prev, runner.next] = [runner.next, runner.prev];
+        // runner = runner.next;
+    }
+
+    var temp = this.head;
+    this.head = this.tail;
+    this.tail = temp;
+
+}
 }
 
 

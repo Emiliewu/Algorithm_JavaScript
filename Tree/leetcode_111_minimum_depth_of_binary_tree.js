@@ -51,3 +51,6 @@ The number of nodes in the tree is in the range [0, 105].
       if(n.right) q.push([n.right, l+1]);
     }
 };
+
+//time o(n)
+// time o(n)
