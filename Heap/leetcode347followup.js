@@ -1,3 +1,5 @@
+//Follow up: Your algorithm's time complexity must be better than O(n log n), where n is the array's size.
+// use minHeap
 class MinHeap {
     constructor(){
         this.heap = [];
@@ -27,7 +29,7 @@ class MinHeap {
     shiftUP(index) {
         if(index === 0) { return; }
         const parentIndex = this.getParentIndex(index);
-        if(this.heap[parentIndex] > this.heap[index]) {
+        if(this.heap[parentIndex] && this.heap[parentIndex].value > this.heap[index].value) {
             this.swap(parentIndex, index);
             this.shiftUP(parentIndex);
         }
@@ -36,11 +38,11 @@ class MinHeap {
     shiftDown(index) {
         const leftIndex = this.getLeftIndex(index);
         const rightIndex = this.getRightIndex(index);
-        if(this.heap[leftIndex] < this.heap[index]) {
+        if(this.heap[leftIndex] && this.heap[leftIndex].value < this.heap[index].value) {
             this.swap(leftIndex, index);
             this.shiftDown(leftIndex);
         }
-        if(this.heap[rightIndex] < this.heap[index]) {
+        if(this.heap[rightIndex] && this.heap[rightIndex].value < this.heap[index].value) {
             this.swap(rightIndex, index);
             this.shiftDown(rightIndex);
         }
@@ -66,10 +68,22 @@ class MinHeap {
 
 }
 
-const h = new MinHeap();
-h.insert(3);
-h.insert(2);
-h.insert(1);
-h.pop();
-h.peak();
-h.size();
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number[]}
+ */
+ var topKFrequent = function(nums, k) {
+    const map = new Map();
+    nums.forEach(n => {
+        map.set(n, map.has(n) ? map.get(n) + 1 : 1);
+    });
+    const h = new MinHeap();
+    map.forEach((value, key) => {
+        h.insert({value, key});
+        if(h.size() > k) {
+            h.pop();
+        }
+    })
+    return h.heap.map(a => a.key);
+};
