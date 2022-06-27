@@ -36,7 +36,7 @@ class MinHeap {
     shiftDown(index) {
         const leftIndex = this.getLeftIndex(index);
         const rightIndex = this.getRightIndex(index);
-        if((this.heap[leftIndex] && this.heap[leftIndex].val < this.heap[index].val) {
+        if(this.heap[leftIndex] && this.heap[leftIndex].val < this.heap[index].val) {
             this.swap(leftIndex, index);
             this.shiftDown(leftIndex);
         }
