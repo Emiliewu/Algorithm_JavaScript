@@ -7,20 +7,20 @@ function decToBinRecursive(num){
     return '';
   }
 
- console.log(decToBinRecursive(100)); 
+ console.log(decToBinRecursive(80)); 
 
  // Binary to Decimal
 
- function binToDecimalRecursive(num, i)
- {
+ function binToDecimalRecursive(num, i){
     if(num === 0 || num === 1) {
-        return Math.pow(2,i)*num
+        return Math.pow(2,i)*num;
         
     }
-    let digit = num%10;
-    return (Math.pow(2,i) * digit) + binToDecimalRecursive(num/10, ++i);
+ 
+    
+    return (Math.pow(2,i) * (num % 10)) + binToDecimalRecursive(num/10, i+1);
     
     
  }
 
- console.log(binToDecimalRecursive(1011011, 0));
+ console.log(binToDecimalRecursive(1000000, 0));
